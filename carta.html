@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carta Interactiva</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="fondo-blur"></div>
+
+    <section>
+        <h1>20 de mayo</h1>
+        <h2>Carta</h2>
+    </section>
+
+    <div class="sobre" id="sobre">
+        <img src="girasol.png" alt="Girasol decorativo" class="girasol" />
+
+        <div class="tapa"></div>
+
+        <div class="hoja">
+            <h3>Hola!</h3>
+            <p>Somos polvo de estrellas</p>
+            <div>
+                <a href="frases.html">Frases</a>
+                <a href="carta_completa.html">Carta</a>
+            </div>
+        </div>
+
+        <div class="contenedor-corazones" id="contenedorCorazones"></div>
+    </div>
+
+    <button onclick="abrirCarta()">Abrir </button>
+
+    <audio id="musica" src="reencuentro.mp3"></audio>
+    <button onclick="reproducirMusica()" class="musica-btn">🎵</button>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/nolimits4web/petal-fall@1.0.0/petal-fall.min.js"></script>
+    <script>
+        petalFall.start();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,335 @@
+.fondo-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('fondo_noche_estrellada.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(8px) brightness(0.7);
+    z-index: -1;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url('fondo_noche_estrellada.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Georgia', serif;
+    color: white;
+    text-shadow: 1px 1px 4px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+h1,
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #457b9d;
+    /* Azul armónico */
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+a:hover {
+    background-color: #1d3557;
+}
+
+.sobre {
+    
+    width: 400px;
+    height: 250px;
+    background: #1d3557;
+    /* Azul noche */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.tapa {
+    width: 400px;
+    height: 120px;
+    background: #2a4365;
+    /* Azul profundo */
+    border-bottom: 3px solid #0d1b2a;
+}
+
+.hoja {
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    width: 85%;
+    height: 220px;
+    background: #edf2f4;
+    /* Azul grisáceo muy claro */
+    color: #1d3557;
+    font-family: 'Georgia', serif;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: top 1s ease, opacity 1s ease;
+    z-index: 1;
+    border-radius: 24px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.hoja h3,p,a {
+    text-align: center;
+    font-size: 22px;
+}
+
+
+.sobre.abierto .tapa {
+    transform: rotateX(180deg);
+}
+
+.sobre.abierto .hoja {
+    top: 10px;
+    opacity: 1;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #457b9d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1d3557;
+}
+
+.contenedor-corazones {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.corazon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: red;
+    transform: rotate(-45deg);
+    animation: flotar 2s ease-out forwards;
+    opacity: 0;
+}
+
+.corazon::before,
+.corazon::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: red;
+    border-radius: 50%;
+}
+
+.corazon::before {
+    top: -15px;
+    left: 0;
+}
+
+.corazon::after {
+    top: 0;
+    left: 15px;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0) scale(1) rotate(-45deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-200px) scale(1.5) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+.musica-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #457b9d;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.musica-btn:hover {
+    background-color: #1d3557;
+}
+
+
+/*codigo para las cards*/
+.tarjetas-contenedor {
+    padding: 40px;
+    background: #f7fbff;
+    text-align: center;
+    height: 100vh; /* altura completa de la ventana */
+    overflow-y: auto; /* scroll si hay muchas tarjetas */
+}
+
+.tarjetas-contenedor {
+    padding: 40px;
+    background: #c2cdeb;
+    text-align: center;
+    height: 100vh; /* altura completa de la ventana */
+    overflow-y: auto; /* scroll si hay muchas tarjetas */
+    border-radius: 26px;
+}
+
+/* Grid de 3 columnas */
+.tarjetas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Tarjeta base */
+.tarjeta {
+    width: 140px;
+    height: 180px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto al agrandar */
+.tarjeta.activa {
+    transform: scale(1.5);
+    z-index: 10;
+}
+
+/* Interior de la tarjeta */
+.tarjeta div {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1em;
+    padding: 15px;
+    backface-visibility: hidden;
+    position: absolute;
+    transition: transform 0.6s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Lado frente */
+.tarjeta .frente {
+    background: linear-gradient(45deg,#7ba1db, #84a5d4);
+    color: white;
+    transform: rotateY(0deg);
+}
+
+/* Lado reverso */
+.tarjeta .reverso {
+    background: #fff;
+    color: #444;
+    transform: rotateY(180deg);
+}
+
+.tarjeta.volteada .frente {
+    transform: rotateY(180deg);
+}
+
+.tarjeta.volteada .reverso {
+    transform: rotateY(360deg);
+}
+
+.tarjeta>div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+@keyframes aparecerTarjeta {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tarjeta {
+    animation: aparecerTarjeta 0.8s ease both;
+}
+
+.tarjeta.volteada::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+    transform: rotate(25deg);
+    animation: brillo 0.6s ease forwards;
+    pointer-events: none;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+@keyframes brillo {
+    0% {
+        transform: rotate(25deg) translateX(-100%);
+    }
+
+    100% {
+        transform: rotate(25deg) translateX(100%);
+    }
+}
+
+.girasol {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 100px;
+    transform: rotate(-15deg);
+    z-index: 2;
+}
