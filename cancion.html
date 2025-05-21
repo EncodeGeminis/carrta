@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frases</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+  <div class="fondo-blur"></div>
+        <!-- HTML -->
+
+<section>
+    <h1>Lista de canciones</h1>
+    <!-- Lista de canciones -->
+<div id="listaCanciones" class="notificaciones-lista">
+  <!-- Tarjetas pequeñas -->
+  <div class="notificacion" onclick="mostrarCancion(0)">💖 </div>
+  <div class="notificacion" onclick="mostrarCancion(1)">🎵 </div>
+  <div class="notificacion" onclick="mostrarCancion(2)">🌹 </div>
+  <div class="notificacion" onclick="mostrarCancion(3)">✨ </div>
+  <div class="notificacion" onclick="mostrarCancion(4)">💌 </div>
+  <div class="notificacion" onclick="mostrarCancion(5)">🎶 </div>
+  <div class="notificacion" onclick="mostrarCancion(6)">🌙 </div>
+  <div class="notificacion" onclick="mostrarCancion(7)">❤️ </div>
+  <div class="notificacion" onclick="mostrarCancion(8)">💫 </div>
+  <div class="notificacion" onclick="mostrarCancion(9)">🎧 </div>
+</div>
+
+<!-- Vista expandida tipo Spotify -->
+<div id="cancionVista" class="spotify-card" style="display:none;">
+  <button onclick="volverALista()" class="btn-volver">← Elegir otra canción</button>
+  <iframe id="videoIframe" class="video" src="" frameborder="0" allowfullscreen></iframe>
+  <div class="info">
+    <h2 id="tituloCancion" class="titulo"></h2>
+    <p id="artistaCancion" class="artista"></p>
+    <button class="boton-reproducir" id="botonEscuchar" target="_blank">▶ Escuchar en YouTube</button>
+  </div>
+</div>
+
+
+</section>
+
+
+</body>
+</html>
